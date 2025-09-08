@@ -1,5 +1,4 @@
 # main.py
-
 # Polymorphism: Base class
 class Vehicle:
     def move(self):
@@ -16,9 +15,29 @@ class Plane(Vehicle):
 class Boat(Vehicle):
     def move(self):
         print("Sailing 🚢")
+# Base class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-        # Test the classes
+    def introduce(self):
+        print(f"Hi, I'm {self.name}, and I'm {self.age} years old.")
 
+# Superhero inherits from Person
+class Superhero(Person):
+    def __init__(self, name, age, power, vehicle: Vehicle):
+        super().__init__(name, age)
+        self.power = power
+        self.vehicle = vehicle  # Polymorphism here
+
+    def use_power(self):
+        print(f"{self.name} uses {self.power}! 💥")
+
+    def travel(self):
+        print(f"{self.name} is on the move:")
+        self.vehicle.move()
+# Test the classes
 if __name__ == "__main__":
     batmobile = Car()
     jet = Plane()
@@ -37,4 +56,5 @@ if __name__ == "__main__":
     superman.introduce()
     superman.use_power()
     superman.travel()
+
 
